@@ -7,7 +7,7 @@
     <meta name="description" content="A light-weight data viewer for hydrologic data" />
     <meta name="author" content="Martin Roberge" />
     <meta name="keywords" content="HydroCloud, hydrology, stream gauges, USGS, data" />
-    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico" />
     <link href='http://fonts.googleapis.com/css?family=Vollkorn:700italic' rel='stylesheet' type='text/css'>
@@ -280,13 +280,13 @@
             <hr>
             <h2>Instructions</h2>
             <p>
-              Points on the map represent USGS stream gauges. Click on a point to see its name and information about its current condition. The hydrograph below the map will display the previous 30 days of stream discharge data.
+              Points on the map represent USGS stream gauges. Click on a point to see its name and information about its current condition. The hydrograph below the map will display the previous 24 hours of stream discharge data.
             </p>
             <hr>
             <h2>Data Source:</h2>
             <p>All data are collected and provided by the US Geological Survey. For more information, visit the NWIS (<a href="http://waterdata.usgs.gov/nwis/rt"> http://waterdata.usgs.gov/nwis/rt</a>)</p>
             <p>
-              --The data displayed in this demo are provided by the US Geological Survey--
+              --The data displayed in this demo are static and hosted by Towson University, not by the original data provider (USGS)--
             </p>
           </div>
           <div id="analysis" class="tabPanel">
@@ -322,7 +322,7 @@
       </div>
       <footer>
         <p>
-          HydroCloud &copy; 2013 Martin Roberge and Mike McGuire
+          HydroCloud &copy; 2012 Martin Roberge and Mike McGuire
           <br>
           This project was funded through the generous support of the Towson University
           School of Emerging Technologies.
@@ -398,7 +398,7 @@
 
       function getUSGS(nSite) {
         $.ajax({
-          url : "http://waterservices.usgs.gov/nwis/iv/?format=json&sites=" + nSite + "&period=P30D&parameterCd=00060",
+          url : nSite + ".txt",
           dataType : 'json', 
           data : '',
           
@@ -434,7 +434,7 @@
 
         var map = new google.maps.Map(document.getElementById("mapdiv"), mapOptions);
 
-        var points = new google.maps.KmlLayer("real.kmz", {
+        var points = new google.maps.KmlLayer("http://pages.towson.edu/mroberge/test/real.kmz", {
           suppressInfoWindows : true,
           preserveViewport : true,
           map : map
