@@ -203,7 +203,7 @@
         </p>
         <div id="acknowledgement">
           <p>
-            HydroCloud &copy; 2013 Martin Roberge and Mike McGuire
+            HydroCloud &copy; 2014 Martin Roberge and Mike McGuire
             <br>
             This project was funded through the generous support of the Towson University
             School of Emerging Technologies.
@@ -322,7 +322,7 @@
       </div>
       <footer>
         <p>
-          HydroCloud &copy; 2012 Martin Roberge and Mike McGuire
+          HydroCloud &copy; 2014 Martin Roberge and Mike McGuire
           <br>
           This project was funded through the generous support of the Towson University
           School of Emerging Technologies.
@@ -398,7 +398,7 @@
 
       function getUSGS(nSite) {
         $.ajax({
-          url : nSite + ".txt",
+         url : "http://waterservices.usgs.gov/nwis/iv/?format=json&sites=" + nSite + "&period=P30D&parameterCd=00060",
           dataType : 'json', 
           data : '',
           
